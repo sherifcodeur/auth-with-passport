@@ -1,6 +1,7 @@
 // all routes for auth Model
     const express = require('express');
     const router = express.Router();
+    const passport = require('passport')
     
     
     
@@ -18,9 +19,16 @@
         
     })
     
-    router.get('/google',(req,res)=>{
+    router.get('/google',passport.authenticate('google',{
 
-        //handle with passport
+        scope:['profile','email']
+    }))
+
+
+
+    router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
+
+        console.log(req.body);
     })
     
     module.exports = router ;

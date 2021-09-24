@@ -3,6 +3,7 @@
     const express = require('express');
     const dotenv = require('dotenv').config();
     const dbconnect = require('./database/connection');
+    const passportSetup = require('./services/passport-setup');
     
     //importing routes - 
     const authRoutes = require('./routes/authRoutes');

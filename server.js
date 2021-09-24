@@ -4,8 +4,8 @@
     const dotenv = require('dotenv').config();
     const dbconnect = require('./database/connection');
     
-    //importing routes - example company routes -
-    //const companyRoutes = require('./routes/companyRoutes');
+    //importing routes - 
+    const authRoutes = require('./routes/authRoutes');
     
     // PORT defined in the env file
     const PORT = process.env.PORT || 3000;
@@ -26,7 +26,8 @@
     
     // Handle custom routes - add the custom routes
     // app.use('/api/v1/user', require('./routes/userRoutes'))
-    //app.use('/api/companies',companyRoutes);
+
+    app.use('/auth',authRoutes);
     
     
     // checks if server is working

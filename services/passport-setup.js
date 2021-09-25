@@ -49,6 +49,7 @@ passport.use(new GoogleStrategy({
 
                             googleId:profile.id,
                             name:profile.displayName,
+                            thumbnail:profile._json.picture
 
                         }).save()
                         .then(newUser=>{

@@ -18,6 +18,9 @@
         googleId:{
 
             type:String,
+        },
+        thumbnail:{
+            type:String,
         }
     
     },     

@@ -5,6 +5,24 @@ const GoogleStrategy = require('passport-google-oauth20')
 const User = require('../models/User');
 
 
+passport.serializeUser((user,done)=>{
+
+    done(null,user.id);
+
+})
+
+passport.deserializeUser((id,done)=>{
+
+    User.findById(id).then((user)=>{
+
+        done(null,user);
+    })
+
+})
+
+
+
+
 passport.use(new GoogleStrategy({
 //options for the google strategy
     callbackURL:'/auth/google/redirect',
@@ -23,6 +41,7 @@ passport.use(new GoogleStrategy({
             if(newUser){
 
                 console.log(newUser)
+                done(null,newUser);
 
             }else{
 
@@ -35,6 +54,7 @@ passport.use(new GoogleStrategy({
                         .then(newUser=>{
 
                             console.log(newUser)
+                            done(null,newUser)
                         })
                         .catch(err=>console.log(err))
 

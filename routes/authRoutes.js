@@ -13,11 +13,7 @@
     })
 
 
-    router.get('/logout',(req,res)=>{
-        
-        //handle with passport
-        
-    })
+  
     
     router.get('/google',passport.authenticate('google',{
 
@@ -28,8 +24,14 @@
 
     router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
 
-        console.log(req.body);
+        res.redirect('/profile/')
     })
+
+
+    router.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
     
     module.exports = router ;
     

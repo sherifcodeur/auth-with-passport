@@ -43,7 +43,7 @@
     app.use('/profile',profileRoutes);
     
     
-    // checks if server is working
+    // homepage rendering
     app.get('/', (req, res) => {
       res.render('home',{user:req.user})
     })
